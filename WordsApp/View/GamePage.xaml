@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WordsApp.GamePage"
+             xmlns:viewModel="clr-namespace:WordsApp.ViewModel"
+             xmlns:model ="clr-namespace:WordsApp.Model"
+             x:DataType="viewModel:MainViewModel">
+    
+    <Grid RowDefinitions="*, Auto"
+          Padding="8,12,8,12" BackgroundColor="#262a2d">
+        <VerticalStackLayout Grid.Row="0" 
+            Spacing="15"
+            Margin="0,16,0,0"
+            BindableLayout.ItemsSource="{Binding  Rows}">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate x:DataType="model:Word">
+                    <HorizontalStackLayout
+                        Spacing="15" 
+                        HorizontalOptions="Center"
+                        BindableLayout.ItemsSource="{Binding Letters, Mode=TwoWay}">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate x:DataType="model:Letter">
+                                <Border BackgroundColor= "{Binding BackGroundColor}"
+                                        StrokeThickness="0"
+                                        >
+                                    <Border.StrokeShape>
+                                        <RoundRectangle CornerRadius="30, 30, 30, 30"/>
+                                    </Border.StrokeShape>
+                                    <Border.Stroke>
+                                        <SolidColorBrush Color="Transparent"/>
+                                    </Border.Stroke>
+                                    <Label Style="{DynamicResource LetterType1}"
+                                           Text="{Binding Value, Mode=TwoWay}">
+                                    </Label>
+                                </Border>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </HorizontalStackLayout>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </VerticalStackLayout>
+        <VerticalStackLayout Grid.Row="1" Spacing="4" Style="{DynamicResource Key=KeyboardVLayout}">
+            <Border StrokeThickness="0"
+        Background="#282c2f"
+        Padding="8"
+        HorizontalOptions="Center">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20, 20, 20, 20"/>
+                </Border.StrokeShape>
+                <Border.Stroke>
+                    <SolidColorBrush Color="Aqua">
+                    
+                    </SolidColorBrush>
+                </Border.Stroke>
+                <VerticalStackLayout Spacing="0">
+                    <HorizontalStackLayout 
+                        Spacing="0" 
+                        HorizontalOptions="Center" 
+                        BindableLayout.ItemsSource="{Binding KeyboardRow1}">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate x:DataType="{x:Null}">
+                                <Button Style="{DynamicResource Key=KeyboardButton}"
+                                Text="{Binding .}"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type viewModel:MainViewModel}}, Path=EnterLetterCommand}"
+                                CommandParameter="{Binding .}"/>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout 
+                        Spacing="0" 
+                        HorizontalOptions="Center" 
+                        BindableLayout.ItemsSource="{Binding KeyboardRow2}">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate x:DataType="{x:Null}">
+                                <Button Style="{DynamicResource Key=KeyboardButton}"
+                                Text="{Binding .}"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type viewModel:MainViewModel}}, Path=EnterLetterCommand}"
+                                CommandParameter="{Binding .}"/>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </HorizontalStackLayout>
+                    <HorizontalStackLayout 
+                            Spacing="0" 
+                            HorizontalOptions="Center" 
+                            BindableLayout.ItemsSource="{Binding KeyboardRow3}">
+                            <BindableLayout.ItemTemplate>
+                                <DataTemplate x:DataType="{x:Null}">
+                                    <Button Style="{DynamicResource Key=KeyboardButton}"
+                                    Text="{Binding .}"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type viewModel:MainViewModel}}, Path=EnterLetterCommand}"
+                                    CommandParameter="{Binding .}"/>
+                                </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+                        </HorizontalStackLayout>
+                        <HorizontalStackLayout 
+                        Spacing="15">
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </Border>
+        </VerticalStackLayout>
+        <!--Keyboard-->
+    </Grid>
+</ContentPage>

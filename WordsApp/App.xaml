@@ -1,0 +1,49 @@
+﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+<Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:WordsApp"
+             x:Class="WordsApp.App">
+    <Application.Resources>
+        <Style TargetType="Button" x:Key="KeyboardButton">
+            <Setter Property="WidthRequest" Value="24"/>
+            <Setter Property="HeightRequest" Value="32"/>
+            <Setter Property="Shadow">
+                <Setter.Value>
+                    <Shadow Brush="Black"
+                        Offset="2,2"
+                        Radius="8"
+                        Opacity="0.5"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="CornerRadius" Value="7"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="Margin" Value="3,3,3,3"/>
+            <Setter Property="TextColor" Value="#2ac5ff"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="HorizontalOptions" Value="Center"/>
+            <Setter Property="BackgroundColor" Value="#303437"/>
+        </Style>
+        <Style TargetType="VerticalStackLayout" x:Key="KeyboardVLayout">
+            <Setter Property="Shadow">
+                <Setter.Value>
+                    <Shadow Brush="Black"
+                        Offset="2,2"
+                        Radius="15"
+                        Opacity="0.7"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="Label" x:Key="LetterType1">
+            <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            <Setter Property="VerticalTextAlignment" Value="Center"/>
+
+            <Setter Property="FontSize" Value="45"/>
+            <Setter Property="FontFamily" Value="Arial"/>
+
+            <Setter Property="WidthRequest" Value="55"/>
+            <Setter Property="HeightRequest" Value="75"/>
+        </Style>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModel="clr-namespace:WordsApp.ViewModel"
+             xmlns:model ="clr-namespace:WordsApp.Model"
+             x:DataType="viewModel:MainViewModel"
+             x:Class="WordsApp.MenuPage"
+             Title="MenuPage">
+    <StackLayout Spacing="20">
+        <Label Margin="0,100,0,100"
+            Text="Wordle-ru"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            FontFamily="Arial"
+            FontSize="35"/>
+
+        <Label x:Name="RecordLabel" Margin="0,0,0,200"
+            Text=""
+            VerticalOptions="Center" 
+            HorizontalOptions="Center"
+            FontFamily="Arial"
+            FontSize="35">
+        </Label>
+        
+        <Button x:Name="StartButton"
+            Text="Начать"
+            Command="{Binding Source={RelativeSource AncestorType={x:Type viewModel:MainViewModel}}, Path=StartGameCommand}">
+        </Button>
+    </StackLayout>
+</ContentPage>
